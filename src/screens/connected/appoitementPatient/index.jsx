@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { apiService } from '../../../apiService'
+import { useNavigate } from 'react-router-dom'
 
 export default function AppoitementPatient() {
   const [incomingAppoitementData, setIncomingAppoitementData] = useState({})
   const [appoitementHistoryPatient, setAppoitementHistoryPatient] = useState({}) // voir pour utiliser use ref
+
+  let navigate = useNavigate()
 
 
   async function handleGetAllAppoitementPatient() {
@@ -30,7 +33,7 @@ export default function AppoitementPatient() {
       </div>
 
       <div>
-        {incomingAppoitementData.length === 0 ? <h2>Vous n'avez pas de rendez-vous à venir</h2> : "test" } 
+        {incomingAppoitementData.length === 0 ? <h2>Vous n'avez pas de rendez-vous à venir. Prenez un rendez-vous ici <button onClick={() => navigate("/SearchAppoitementPatient") }> Prendre rendez-vous</button> </h2> : "test" } 
       </div> 
     </div>
   )
