@@ -46,5 +46,14 @@ export const apiService = {
         } catch (error) {
             return error;
         }
+    },
+
+    async getDoctorByTown(type, postal_code ,town) {
+        try {
+            const res = await prescriptoService.get(`search/${type}/${postal_code}/${town}`)
+            return res;
+        } catch (error) {
+            return error;
+        }
     }
 }
